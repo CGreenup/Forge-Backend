@@ -15,7 +15,7 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class AdminChartService {
+public class AdminReportService {
 	
 	private UserRepo userRepo;
 	private PortfolioRepo portfolioRepo;
@@ -78,18 +78,19 @@ public class AdminChartService {
 			
 			//get denied count by admin id
 			Integer deniedCount = getCount(false, adminList.get(i).getId());
-			
-			//get response time in second
-			Double avgResponseTime = portfolioService.calculateAverageResponseTime();
-			
-			String avgResponseTimeString = portfolioService.calculateAverageResponseTimeString();
 	
-			chartData.add(new AdminChart(adminList.get(i).getFName()+ ' ' + adminList.get(i).getLName(), (approveCount==null? 0: approveCount), (deniedCount==null? 0: deniedCount),
-					(avgResponseTime==null? 0: avgResponseTime),avgResponseTimeString));
+			chartData.add(new AdminChart(
+				adminList.get(i).getFName()+ ' ' + adminList.get(i).getLName(), 
+				(approveCount==null? 0: approveCount), 
+				(deniedCount==null? 0: deniedCount)
+			));
 		}
 		
 		return ResponseEntity.status(HttpStatus.OK).body(chartData);
 	}
 	
-	
+	public ResponseEntity<String> getAverageResponseTime(){
+		String avgResponseTimeString = portfolioService.calculateAverageResponseTimeString();
+		return ResponseEntity.status(HttpStatus.OK).body(avgResponseTimeString);
+	}
 }

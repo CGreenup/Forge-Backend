@@ -13,6 +13,4 @@ public class AdminChart {
 	String name;
 	int approved;
 	int denied;
-	double responseTime;
-	String responseTimeString;
 }

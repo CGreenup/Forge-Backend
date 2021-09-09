@@ -17,7 +17,7 @@ import com.forge.revature.models.Portfolio;
 import com.forge.revature.models.User;
 import com.forge.revature.repo.PortfolioRepo;
 import com.forge.revature.repo.UserRepo;
-import com.forge.revature.services.AdminChartService;
+import com.forge.revature.services.AdminReportService;
 import com.forge.revature.services.PortfolioService;
 
 @SpringBootTest
@@ -32,7 +32,7 @@ public class AdminChartServiceTest {
 	@MockBean
 	private PortfolioService portfolioService;
 	
-	private AdminChartService adminChartService;
+	private AdminReportService adminChartService;
 	
 	private User user;
 
@@ -44,10 +44,10 @@ public class AdminChartServiceTest {
 	
 	@BeforeEach
 	public void setup() {
-		adminChartService = new AdminChartService(userRepo, portfolioRepo, portfolioService);
+		adminChartService = new AdminReportService(userRepo, portfolioRepo, portfolioService);
 		user = new User(1, "Hong", "Wu", "hong@mail.com", "password", true);
 		portfolio = new Portfolio(1, "hong Portfolio", user, true, true, true, user, "description", true, true, "", "", 0L, null);
-		adminChart = new AdminChart("Hong Wu", 1, 0, 0D, "");
+		adminChart = new AdminChart("Hong Wu", 1, 0);
 		allAdmin = new ArrayList<User>();
 		allAdmin.add(user);
 	}
