@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.forge.revature.models.AdminChart;
-import com.forge.revature.services.AdminChartService;
+import com.forge.revature.services.AdminReportService;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -16,7 +16,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class AdminChartController {
 	
-	private AdminChartService adminChartService;
+	private AdminReportService adminChartService;
 	
 	/**
 	* getAdminWorkReport --- get a report in json object containing all the admin's approved or denied counts.

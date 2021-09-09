@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.forge.revature.services.AdminChartService;
+import com.forge.revature.services.AdminReportService;
 
 import lombok.AllArgsConstructor;
 
@@ -16,7 +16,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class AvgResponseTimeController {
 
-	private AdminChartService adminChartService;
+	private AdminReportService adminChartService;
 	
 	@GetMapping
 	public ResponseEntity<String> getAverageResponseTime(){

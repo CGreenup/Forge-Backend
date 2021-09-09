@@ -15,7 +15,7 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class AdminChartService {
+public class AdminReportService {
 	
 	private UserRepo userRepo;
 	private PortfolioRepo portfolioRepo;

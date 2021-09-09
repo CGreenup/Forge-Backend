@@ -22,7 +22,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.forge.revature.controllers.AdminChartController;
 import com.forge.revature.models.AdminChart;
-import com.forge.revature.services.AdminChartService;
+import com.forge.revature.services.AdminReportService;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(AdminChartController.class)
@@ -34,7 +34,7 @@ public class AdminChartControllerTest {
 	private static String baseUrl = "/api/adminChart";	
 
 	@MockBean
-	AdminChartService adminChartService;
+	AdminReportService adminChartService;
 	
 	private AdminChart adminChart;
 
