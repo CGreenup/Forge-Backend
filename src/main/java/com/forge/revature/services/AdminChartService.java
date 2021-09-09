@@ -19,7 +19,6 @@ public class AdminChartService {
 	
 	private UserRepo userRepo;
 	private PortfolioRepo portfolioRepo;
-	private PortfolioService portfolioService;
 	
 	/**
 	* getCount --- program to get the count of approved or denied portfolios by one admin.
@@ -78,14 +77,12 @@ public class AdminChartService {
 			
 			//get denied count by admin id
 			Integer deniedCount = getCount(false, adminList.get(i).getId());
-			
-			//get response time in second
-			Double avgResponseTime = portfolioService.calculateAverageResponseTime();
-			
-			String avgResponseTimeString = portfolioService.calculateAverageResponseTimeString();
 	
-			chartData.add(new AdminChart(adminList.get(i).getFName()+ ' ' + adminList.get(i).getLName(), (approveCount==null? 0: approveCount), (deniedCount==null? 0: deniedCount),
-					(avgResponseTime==null? 0: avgResponseTime),avgResponseTimeString));
+			chartData.add(new AdminChart(
+				adminList.get(i).getFName()+ ' ' + adminList.get(i).getLName(), 
+				(approveCount==null? 0: approveCount), 
+				(deniedCount==null? 0: deniedCount)
+			));
 		}
 		
 		return ResponseEntity.status(HttpStatus.OK).body(chartData);
