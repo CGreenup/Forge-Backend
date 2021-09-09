@@ -44,7 +44,7 @@ public class AdminChartServiceTest {
 	
 	@BeforeEach
 	public void setup() {
-		adminChartService = new AdminChartService(userRepo, portfolioRepo);
+		adminChartService = new AdminChartService(userRepo, portfolioRepo, portfolioService);
 		user = new User(1, "Hong", "Wu", "hong@mail.com", "password", true);
 		portfolio = new Portfolio(1, "hong Portfolio", user, true, true, true, user, "description", true, true, "", "", 0L, null);
 		adminChart = new AdminChart("Hong Wu", 1, 0);

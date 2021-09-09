@@ -19,6 +19,7 @@ public class AdminChartService {
 	
 	private UserRepo userRepo;
 	private PortfolioRepo portfolioRepo;
+	private PortfolioService portfolioService;
 	
 	/**
 	* getCount --- program to get the count of approved or denied portfolios by one admin.
@@ -88,5 +89,8 @@ public class AdminChartService {
 		return ResponseEntity.status(HttpStatus.OK).body(chartData);
 	}
 	
-	
+	public ResponseEntity<String> getAverageResponseTime(){
+		String avgResponseTimeString = portfolioService.calculateAverageResponseTimeString();
+		return ResponseEntity.status(HttpStatus.OK).body(avgResponseTimeString);
+	}
 }
